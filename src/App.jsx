@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import IDCard from "./components/IDCard";
 
 const CLASS_OPTIONS = [
@@ -68,32 +68,29 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create submission data (excluding the actual file, just use the preview)
     const submissionData = {
       ...formData,
       photo: formData.photoPreview,
     };
-    setSubmittedData(submissionData);
-  };
 
-  console.log("submittedData", submittedData);
+    setSubmittedData(submissionData);
+
+    localStorage.setItem("studentIdCardData", JSON.stringify(submissionData));
+  };
 
   const handleAllergyChange = (allergy) => {
     let updatedAllergies;
 
     if (allergy === "None") {
-      // If 'None' is selected, clear all other allergies
       updatedAllergies = ["None"];
     } else {
-      // If current allergies includes 'None', remove it
       const currentAllergies = formData.allergies.includes("None")
         ? formData.allergies.filter((a) => a !== "None")
         : [...formData.allergies];
 
-      // Toggle the selected allergy
       if (currentAllergies.includes(allergy)) {
         updatedAllergies = currentAllergies.filter((a) => a !== allergy);
-        // If no allergies are selected, default to 'None'
+
         if (updatedAllergies.length === 0) {
           updatedAllergies = ["None"];
         }
@@ -107,6 +104,20 @@ const App = () => {
       allergies: updatedAllergies,
     });
   };
+
+  // Inside your App component
+  useEffect(() => {
+    const savedData = localStorage.getItem("studentIdCardData");
+    if (savedData) {
+      const parsed = JSON.parse(savedData);
+      setFormData({
+        ...parsed,
+        photo: null, // reset the file input
+        photoPreview: parsed.photo, // restore preview
+      });
+      setSubmittedData(parsed);
+    }
+  }, []);
 
   return (
     <div className="p-20 bg-gray-300">

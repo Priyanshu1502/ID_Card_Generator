@@ -2,7 +2,7 @@
 
 This project is a **React-based ID Card Generator** that allows users to input their details and generate a personalized ID card. The ID card includes a **QR code** containing the user's basic information and can be downloaded as a PNG image. The application provides two customizable templates for the ID card layout.
 
----
+## This app is live at https://idgeneratoruser.netlify.app/
 
 ## Features
 

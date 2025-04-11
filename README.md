@@ -19,11 +19,11 @@ This project is a **React-based ID Card Generator** that allows users to input t
 
 ### Horizontal Template
 
-_(Insert image of the horizontal ID card template here)_
+![image alt](<https://github.com/Priyanshu1502/ID_Card_Generator/blob/main/student-id-card-john-doe%20(1).png?raw=true>)
 
 ### Vertical Template
 
-_(Insert image of the vertical ID card template here)_
+![image alt](https://github.com/Priyanshu1502/ID_Card_Generator/blob/main/student-id-card-john-doe.png?raw=true)
 
 ---
 
@@ -56,6 +56,6 @@ _(Insert image of the vertical ID card template here)_
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/id-card-generator.git
+   git clone https://github.com/Priyanshu1502/ID_Card_Generator.git
    cd id-card-generator
    ```

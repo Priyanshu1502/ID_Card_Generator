@@ -93,6 +93,7 @@ const IDCard = ({ formData }) => {
               value={JSON.stringify(QRData)}
               size={128}
               level={"H" || "L" || "M" || "Q" || "H"}
+              includeMargin={true}
             />
           </div>
         </div>
